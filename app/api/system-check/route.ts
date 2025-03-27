@@ -18,7 +18,7 @@ export async function GET() {
     "deploy.sh",
   ]
 
-  const fileStatus = {}
+  const fileStatus: Record<string, boolean> = {}
 
   for (const file of requiredFiles) {
     try {
@@ -31,8 +31,8 @@ export async function GET() {
   }
 
   // Check for required dependencies in package.json
-  let packageJson = {}
-  const dependenciesStatus = {}
+  let packageJson: { dependencies?: Record<string, string>; devDependencies?: Record<string, string> } = {}
+  const dependenciesStatus: Record<string, boolean> = {}
 
   try {
     const packageJsonPath = path.join(process.cwd(), "package.json")
@@ -67,7 +67,7 @@ export async function GET() {
     // Add other required env vars here
   ]
 
-  const envVarStatus = {}
+  const envVarStatus: Record<string, boolean> = {}
   for (const envVar of requiredEnvVars) {
     envVarStatus[envVar] = !!process.env[envVar]
   }
