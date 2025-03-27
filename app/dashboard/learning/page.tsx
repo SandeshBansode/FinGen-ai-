@@ -386,7 +386,7 @@ export default function LearningPage() {
                     </div>
                     <h4 className="font-medium mt-2 text-center">{achievement.name}</h4>
                     {achievement.completed ? (
-                      <Badge variant="success" className="mt-2">
+                      <Badge variant="default" className="mt-2">
                         Completed
                       </Badge>
                     ) : (

@@ -21,7 +21,7 @@ export default function AIAssistantPage() {
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [selectedModel, setSelectedModel] = useState("advanced")
-  const messagesEndRef = useRef(null)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   // Sample suggested questions
   const suggestedQuestions = [
@@ -69,7 +69,7 @@ export default function AIAssistantPage() {
 
     // Simulate AI response after a delay
     setTimeout(() => {
-      const aiResponses = {
+      const aiResponses: Record<string, string> = {
         "What stocks should I consider for long-term growth?":
           "Based on your investment profile and goals, I'd recommend considering these growth-oriented stocks:\n\n1. **Technology Sector**: Companies like Microsoft (MSFT), Alphabet (GOOGL), and Amazon (AMZN) have strong fundamentals and are positioned well in cloud computing and AI.\n\n2. **Healthcare Innovation**: Companies like UnitedHealth Group (UNH) and Thermo Fisher Scientific (TMO) show consistent growth and innovation.\n\n3. **Renewable Energy**: Consider NextEra Energy (NEE) or Brookfield Renewable (BEP) for exposure to the growing clean energy transition.\n\nI'd recommend allocating no more than 5-7% of your portfolio to any single stock. Would you like me to analyze any of these specific companies in more detail?",
 
@@ -100,19 +100,19 @@ export default function AIAssistantPage() {
     }, 1500)
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
       handleSendMessage()
     }
   }
 
-  const formatTimestamp = (timestamp) => {
+  const formatTimestamp = (timestamp: string | Date) => {
     const date = new Date(timestamp)
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   }
 
-  const handleSuggestedQuestion = (question) => {
+  const handleSuggestedQuestion = (question: string) => {
     setInputValue(question)
     // Optional: automatically send the question
     // setMessages(prev => [...prev, { role: "user", content: question, timestamp: new Date().toISOString() }])

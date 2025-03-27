@@ -15,7 +15,7 @@ export async function GET() {
     'next.config.js',
   ];
 
-  const fileStatus = {};
+  const fileStatus: { [key: string]: boolean } = {};
   
   for (const file of requiredFiles) {
     try {

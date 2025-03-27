@@ -139,7 +139,16 @@ export default function EducationalResourcesPage() {
   )
 }
 
-function ResourceCard({ icon, title, description, type, time, level }) {
+interface ResourceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  type: string;
+  time: string;
+  level: string;
+}
+
+function ResourceCard({ icon, title, description, type, time, level }: ResourceCardProps) {
   return (
     <Card>
       <CardContent className="p-6">

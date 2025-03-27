@@ -150,7 +150,15 @@ export default function NotificationsPage() {
   )
 }
 
-function NotificationItem({ icon, title, description, time, isUnread = false }) {
+interface NotificationItemProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  time: string;
+  isUnread?: boolean;
+}
+
+function NotificationItem({ icon, title, description, time, isUnread = false }: NotificationItemProps) {
   return (
     <div className={`flex items-start p-4 ${isUnread ? "bg-accent/20" : ""}`}>
       <div className="mr-4">{icon}</div>

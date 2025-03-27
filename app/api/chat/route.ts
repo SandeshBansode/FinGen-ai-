@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     console.error("Error in chat API:", error)
 
     // Determine if it's a rate limit error
-    const isRateLimit = error.message?.includes("rate limit") || error.message?.includes("429")
+    const isRateLimit = (error as any).message?.includes("rate limit") || (error as any).message?.includes("429")
 
     return new Response(
       JSON.stringify({

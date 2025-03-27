@@ -12,18 +12,19 @@ export function FloatingAssistant() {
     <>
       {/* Floating button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={() => setIsOpen(true)}
-          size="lg"
-          className="h-14 w-14 rounded-full shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-        >
-          <Bot size={24} />
-        </Button>
+      <Button
+        onClick={() => setIsOpen(true)}
+        size="lg"
+        className="h-14 w-14 rounded-full shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+      >
+        <Bot size={24} aria-label="Open AI Assistant" />
+      </Button>
       </div>
 
       {/* AI Assistant Modal */}
-      <AIAssistant isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      {isOpen && (
+      <AIAssistant onClose={() => setIsOpen(false)} />
+      )}
     </>
   )
 }
-
