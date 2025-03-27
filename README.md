@@ -67,9 +67,3 @@ FinAI/
    cd ai-engine
    python inference.py
    ```
-
-## 📜 License  
-
-This project is licensed under the MIT License – feel free to modify and distribute.  
-
--
