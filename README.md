@@ -1,6 +1,3 @@
-Here's a well-structured and visually appealing version of your README file:  
-
----
 
 # 🚀 FinAI - AI-Powered Financial Assistant  
 
